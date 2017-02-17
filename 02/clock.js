@@ -739,6 +739,12 @@ function clock(){
 		}
 	}
 
+	var se_deta = new Audio('se/deta.mp3');
+	var se_ah = new Audio('se/ah.mp3');
+	var se_haxa = new Audio('se/haxa.mp3');
+	var se_yukkuri = new Audio('se/yukkuri.mp3');
+	var se_lunch_time = new Audio('se/lunch_time.mp3');
+
 	var i = setInterval(function(){
 	    // do your thing
 	    if(!dot){
@@ -761,6 +767,16 @@ function clock(){
 
 		s_1 = Math.floor(ss/10);
 		s_2 = ss - s_1*10;
+
+		if(s_1 == 0 && s_2 == 0) {
+			se_yukkuri.play();
+		}
+
+		if(    h_1 == 1 && h_2 == 2
+			&& m_1 == 0 && m_2 == 0
+			&& s_1 == 0 && s_2 == 0) {
+			se_deta.play();
+		}
 
 	    clock(h_1, "h_1");
 	    clock(h_2, "h_2");
